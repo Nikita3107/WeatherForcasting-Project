@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import Weathercard from "./weathercard";
+import Weathercard from "./weathercard";
  import "./style.css";
 
 const Temp = () => {
@@ -39,7 +39,7 @@ const Temp = () => {
 
   useEffect(() => {
     getWeatherInfo();
-  }, []);
+  });
   return (
     <>
       <div className="wrap">
@@ -61,7 +61,10 @@ const Temp = () => {
             Search
           </button>
         </div>
+        
       </div>
+      <Weathercard {...tempInfo}/>
+
     </>
   );
 };
