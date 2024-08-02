@@ -14,7 +14,7 @@ const Temp = () => {
       let data = await res.json();
 
       const { temp, humidity, pressure } = data.main;
-      const { main, weathermood } = data.weather[0];
+      const { main: weathermood } = data.weather[0];
       const { name } = data;
       const { speed } = data.wind;
       const { country, sunset } = data.sys;
@@ -24,7 +24,6 @@ const Temp = () => {
         temp: tempCelsius,
         humidity,
         pressure,
-        main,
         weathermood,
         name,
         speed,
