@@ -22,6 +22,7 @@ const Temp = () => {
 
       const myWeatherInfo = {
         temp: tempCelsius,
+        
         humidity,
         pressure,
         weathermood,
