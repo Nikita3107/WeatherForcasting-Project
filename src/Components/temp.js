@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Weathercard from "./weathercard";
- import "./style.css";
+import "./style.css";
 
 const Temp = () => {
   const [searchValue, setsearchValue] = useState("Indore");
@@ -8,8 +8,7 @@ const Temp = () => {
 
   const getWeatherInfo = async () => {
     try {
-      let url =
-     `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=9c158692bbc9ee9a941fb355a13957d3`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=9c158692bbc9ee9a941fb355a13957d3`;
 
       let res = await fetch(url);
       let data = await res.json();
@@ -19,9 +18,10 @@ const Temp = () => {
       const { name } = data;
       const { speed } = data.wind;
       const { country, sunset } = data.sys;
+      const tempCelsius = (temp - 273.15).toFixed(2);
 
       const myWeatherInfo = {
-        temp,
+        temp: tempCelsius,
         humidity,
         pressure,
         main,
@@ -39,7 +39,7 @@ const Temp = () => {
 
   useEffect(() => {
     getWeatherInfo();
-  });
+  },[]);
   return (
     <>
       <div className="wrap">
@@ -61,10 +61,8 @@ const Temp = () => {
             Search
           </button>
         </div>
-        
       </div>
-      <Weathercard {...tempInfo}/>
-
+      <Weathercard {...tempInfo} />
     </>
   );
 };

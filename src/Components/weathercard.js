@@ -19,7 +19,7 @@ const Weathercard = ({
           setweatherSate("wi-day-cloudy");
           break;
         case "Haze":
-          setweatherSate("wi-fog");
+          setweatherSate("wi-day-haze");
           break;
         case "Clear":
           setweatherSate("wi-day-sunny");
@@ -40,7 +40,7 @@ const Weathercard = ({
   let sec = sunset;
   let date = new Date(sec * 1000);
   let timeStr = `${date.getHours()}:${date.getMinutes()}`;
-  
+
   return (
     <div className="widget">
       <div className="weatherIcon">
@@ -59,19 +59,23 @@ const Weathercard = ({
           </div>
         </div>
       </div>
-      
+
       <div className="date">{new Date().toLocaleString()}</div>
 
       <div className="extra-temp">
         <div className="temp-info-minmax">
           <div className="two-sided-section">
-            <p><i className={"wi wi-sunset"}></i></p>
+            <p>
+              <i className={"wi wi-sunset"}></i>
+            </p>
             <p className={"extra-info-leftside"}>
               {timeStr} PM <br /> Sunset
             </p>
           </div>
           <div className="two-sided-section">
-            <p><i className={"wi wi-humidity"}></i></p>
+            <p>
+              <i className={"wi wi-humidity"}></i>
+            </p>
             <p className="extra-info-leftside">
               {humidity} <br /> Humidity
             </p>
@@ -80,14 +84,18 @@ const Weathercard = ({
 
         <div className="weather-extra-info">
           <div className="two-sided-section">
-            <p><i className={'wi wi-rain'}></i></p>
+            <p>
+              <i className={"wi wi-rain"}></i>
+            </p>
             <p className="extra-info-leftside">
               {pressure} <br /> Pressure
             </p>
           </div>
           <div className="two-sided-section">
-            <p><i className={'wi wi-strong-wind'}></i></p>
-            <p className="extra-info-left-side">
+            <p>
+              <i className={"wi wi-strong-wind"}></i>
+            </p>
+            <p className="extra-info-leftside">
               {speed} <br /> Speed
             </p>
           </div>
